@@ -1,0 +1,22 @@
+pipeline {
+  agent any
+  parameters {
+    choice(name: 'coffee_choice',
+    choices: 'latte\nespresso\nflatwhite\namericano',
+    description: 'What kind of coffee?')
+    booleanParam(name: 'CREAM_SUGAR',
+      defaultValue; false,
+      description: 'Checkbox parameter')
+    string(name: 'StringParameter',
+      defaultValue: '10Percent',
+      description: 'Tip Please')
+  }
+  stages {
+    setps {
+      echo 'Hello World!'
+      echo "I would like a: ${params.coffee_choice}"
+      echo "Please add: ${params.CREAM_SUGAR}"
+      echo "How much of a tip: ${params.StringParameter}"
+    }
+  }
+}
